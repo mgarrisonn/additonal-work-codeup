@@ -1,55 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>DOM Review</title>
+    <meta charset="UTF-8">
+    <title>DOM Review</title>
 </head>
 <body>
 <style>
 
 </style>
-  <div class="container">
+<div class="container">
     <div id="main">
-      <input type="text" id="input">
-      <button id="add-to-list">Add to List</button>
+        <input type="text" id="input">
+        <button id="add-to-list">Add to List</button>
 
-      <h4>Favorite Food:</h4>
-      <ul id="favorite-food">
-        <li>Ramen</li>
-        <li>Sushi</li>
-        <li>Curry</li>
-      </ul>
+        <h4>Favorite Food:</h4>
+        <ul id="favorite-food">
+            <li>Ramen</li>
+            <li>Sushi</li>
+            <li>Curry</li>
+        </ul>
 
-      <h4 id="change-me">Change Me</h4>
+        <h4 id="change-me">Change Me</h4>
 
-      <h4>My Cohort: <span id="my-cohort"></span></h4>
-      <input type="text" id="cohort-name" name="cohort">
-      <button id="change-cohort">Update</button>
-      <br>
-      <button id="highlight">Highlight</button>
+        <h4>My Cohort: <span id="my-cohort"></span></h4>
+        <input type="text" id="cohort-name" name="cohort">
+        <button id="change-cohort">Update</button>
+        <br>
+        <button id="highlight">Highlight</button>
     </div>
-  </div>
+</div>
 <script src="js/jquery-2.2.4.js/"></script>
 <script>
-  $(document).ready(function(){
+    $(document).ready(function () {
 
-  // allow users to add favorite food to list
-  $('#add-to-list').click(function(){
-    $('#favorite-food').append($('<li>', {
-      text: $('#input').val()
-    }));
-  });
-  // when h4 is dbl clicked background color changes
-  $('h4').dblclick(function(){
-    $(this).css('background-color', 'purple');
-  });
+        // allow users to add favorite food to list
+        $('#add-to-list').click(function () {
+            $('#favorite-food').append($('<li>', {
+                text: $('#input').val()
+            }));
+        });
+        // when h4 is dbl clicked background color changes
+        $('h4').dblclick(function () {
+            $(this).css('background-color', 'purple');
+        });
 
-  // allow users to enter cohort name/appear under cohort
-  $('#change-cohort').click(function(){
-    var toAdd = $('input[name=cohort]').val();
-    $('#my-cohort').append("<div class='item'>" + toAdd + "</div>");
-  });
-  });
+        // allow users to enter cohort name/appear under cohort
+        $('#change-cohort').click(function () {
+            var toAdd = $('input[name=cohort]').val();
+            $('#my-cohort').append("<div class='item'>" + toAdd + "</div>");
+        });
+
+        // When 'Highlight' button is clicked, change the background color of the cohort name to yellow.
+        $('#highlight').click(function(){
+          $('.item').css('background-color', 'yellow');
+        });
+
+        // Write some JavaScript that changes the background-color of the container to pink after 3 seconds.
+        $(function () {
+            var colors = ["#0099cc", "#c0c0c0", "#587b2e", "#990000", "#1C8200", "#987baa", "#981890", "#AA8971", "#1987FC", "#99081E"];
+
+            setInterval(function () {
+                var bodybg = Math.floor(Math.random() * colors.length);
+                var selectedcolor = colors[bodybg];
+                $("body").css("background", selectedcolor);
+            }, 3000);
+        })
+
+    });
 </script>
 </body>
 </html>
