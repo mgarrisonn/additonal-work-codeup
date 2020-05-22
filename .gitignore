@@ -2,3 +2,6 @@
 *.iml
 keys.js
 .DS_Store
+node_modules/
+*.log
+haters/
