@@ -5,3 +5,4 @@ keys.js
 node_modules/
 *.log
 haters/
+.idea/
